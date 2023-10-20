@@ -1,0 +1,82 @@
+﻿<Window x:Class="Queryator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Queryator"
+        mc:Ignorable="d"
+        Title="Queryator" Height="745.84" Width="531.126" 
+        Initialized="Window_Initialized_1" 
+        Foreground="#FF020202"         
+        >
+    
+
+
+    <Grid Margin="0,0,-8,0" MinWidth="400" MinHeight="600">
+        <Grid.Background>
+            <ImageBrush ImageSource="https://live.staticflickr.com/65535/52014546650_bcf8566d1e_k.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="230"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Vertical" Margin="250,0,0,0">
+            <TextBlock x:Name="textBlockUser" Grid.Row="0"  HorizontalAlignment="Right" 
+                       Margin="0,0,20,0" TextWrapping="Wrap"  TextAlignment="Right"  Text="User:" VerticalAlignment="Top" RenderTransformOrigin="2.538,0.562"/>
+            <TextBlock x:Name="textBlockUserSalir" Grid.Row="0"  HorizontalAlignment="Right" 
+                       Margin="0,0,20,0" TextAlignment="Right" TextWrapping="Wrap" Text="Salir"  VerticalAlignment="Top" Foreground="#FF0B3ADA" TextDecorations="Underline" PreviewMouseDown="textBlockUserSalir_PreviewMouseDown"/>
+            
+        </StackPanel>
+
+
+
+        <TextBox x:Name="textBoxQuery"  Grid.Row="0" Height="179" Margin="40,43,40,0" TextWrapping="Wrap" VerticalAlignment="Top" AcceptsReturn="True"/>
+        <TextBlock x:Name="textBlock" Grid.Row="0"  HorizontalAlignment="Left" Margin="41,22,0,0" TextWrapping="Wrap" Text="Introduzca la query imposible" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="1" Margin="40,0" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="textBlock_Copy" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="Seleccione la ruta de salida" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxOutputFile" Grid.Row="0" Grid.ColumnSpan="2" Height="23" Margin="0,31,86,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+            <Button x:Name="button1" Grid.Row="0" Grid.ColumnSpan="2" Content="Examinar" Margin="0,31,10,0" VerticalAlignment="Top" Width="63" Height="23" Click="button1_Click" HorizontalAlignment="Right"/>
+
+            <TextBlock x:Name="textBlock1"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="0,7,0,0" TextWrapping="Wrap" Text="Numero de querys en paralelo" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textBlock2"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" TextWrapping="Wrap" Text="Numero de trozos de Ids" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxNumTrozos"  Grid.Row="1" Grid.Column="1" Height="23" Margin="0,28,10,0" TextWrapping="Wrap" Text="50000" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxParalelQuerys"  Grid.Row="1" Grid.Column="0" Height="23" Margin="0,28,10,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" UndoLimit="102"/>
+
+            <TextBlock x:Name="textBlockMaxReintentos" Grid.Row="2" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Num. Maximo Reintentos" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxReintentos"  Grid.Row="2" Height="23" Margin="-2,21,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="5"/>
+            <TextBlock x:Name="textBlockTimeout" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Timeout" VerticalAlignment="Top" />
+            <TextBox x:Name="textBoxTimeout"  Grid.Row="2" Grid.Column="1" Height="23" Margin="0,21,7,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="30" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="40,5.5,40,0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <ListBox x:Name="listBoxResultados" Grid.Row="0"  Margin="0,0,0,0"/>
+            <Button x:Name="button" Grid.Row="1"  Content="Queryator!"  Click="button_Click" Width="175" Height="40" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+
+        </Grid>
+        <!--<ListBox x:Name="listBoxResultados" Grid.Row="2" Margin="40,0" VerticalAlignment="Top" Height="200"/>
+        <Button x:Name="button" Grid.Row="2" Content="Queryator!" Margin="0,0,0,25" RenderTransformOrigin="0.511,0.762" Click="button_Click" Width="175" Height="40" VerticalAlignment="Bottom"/>-->
+
+
+    </Grid>
+</Window>
